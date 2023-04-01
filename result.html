@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Conversion Result</title>
+</head>
+<body>
+	<h1>Conversion Result</h1>
+	<p>Amount: {{ amount }} {{ currency_type }}</p>
+	<p>Converted Amount: {{ converted_amount }} {{ "CNY" if currency_type == "USD" else "USD" }}</p>
+	<a href="/">Convert Another</a>
+</body>
+</html>
