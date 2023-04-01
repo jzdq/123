@@ -1,0 +1,23 @@
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/convert', methods=['POST'])
+def convert():
+    currency_type = request.form['currency_type']
+    amount = float(request.form['amount'])
+    converted_amount = 0
+    
+    if currency_type == 'USD':
+        converted_amount = amount * 6.78
+    elif currency_type == 'CNY':
+        converted_amount = amount / 6.78
+        
+    return render_template('result.html', amount=amount, currency_type=currency_type, converted_amount=converted_amount)
+
+if __name__ == '__main__':
+    app.run(debug=True)
