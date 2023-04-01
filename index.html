@@ -1,26 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>生成二维码</title>
-    <script src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+	<meta charset="UTF-8">
+	<title>全屏悬浮窗</title>
+	<style>
+		#overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.5);
+			z-index: 9999;
+		}
+		#content {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.5);
+		}
+	</style>
 </head>
 <body>
-
-<h1>动态生成二维码</h1>
-
-<div id="qrcode"></div>
-
-<script>
-    var qrcode = new QRCode(document.getElementById("qrcode"), {
-        text: "https://www.example.com", // 二维码内容
-        width: 256, // 二维码宽度
-        height: 256, // 二维码高度
-        colorDark : "#000000", // 前景色
-        colorLight : "#ffffff", // 背景色
-    });
-    qrcode.makeCode(); // 生成二维码
-</script>
-
+	<div id="overlay">
+		<div id="content">
+			<h1>我是全屏悬浮窗</h1>
+			<p>这是悬浮窗的内容</p>
+			<button onclick="closeOverlay()">关闭</button>
+		</div>
+	</div>
+	<!-- 在这里可以添加其他页面内容 -->
+	<script>
+		function closeOverlay() {
+			document.getElementById("overlay").remove();
+			// 这里可以添加其他关闭操作
+		}
+	</script>
 </body>
 </html>
