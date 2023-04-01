@@ -1,1 +1,26 @@
-<h1>123<h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>动态生成二维码</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+<h1>动态生成二维码</h1>
+
+<div id="qrcode"></div>
+
+<script>
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+        text: "https://www.example.com", // 二维码内容
+        width: 256, // 二维码宽度
+        height: 256, // 二维码高度
+        colorDark : "#000000", // 前景色
+        colorLight : "#ffffff", // 背景色
+    });
+    qrcode.makeCode(); // 生成二维码
+</script>
+
+</body>
+</html>
